@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+	<meta X-Content-Type-Options: nosniff>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="../../Imagens/dino-icon.png" type="image/png" />
+    <link rel="stylesheet" type="text/css" href="../aleatoria/styleAleatoria.css" />
+    
+    <title>Aleatória Simples</title>
+</head>
+
+<body>
+
+	<!-- CABEÇALHO -->
+	
+	<header class="header">
+		
+		<div class="logo">
+			<img src="../../Imagens/dino-gif.gif" alt="dino-gif">
+		</div>
+		
+		<div class="titulo">
+			ALEATÓRIA SIMPLES
+		</div>
+			
+		<div class="menu">
+			<div class="home">
+				<a href="../index.html">Home</a>
+			</div>
+			
+			<div class="sobre">
+				<a href="../sobre.html">Sobre</a>
+			</div>
+		</div>
+
+    </header>
+	
+	<!-- CONTEÚDO -->
+
+	<div class="conteudo">
+		
+		<div class="calculo">
+			
+			<label for="erroToleravelId">Informe o erro máximo tolerável (%):</label>
+			<br/>
+			<br/>
+			<input type="number" id="erroToleravelId" name="erroToleravelName" min="1" max="100" autofocus>
+			<br/>
+			<br/>
+			
+			<label for="tamanhoPopulacao">Informe o tamanho da população (se conhecido):</label>
+			<br/>
+			<br/>
+			<input type="number" id="tamanhoPopulacaoId" name="tamanhoPopulacaoName" min="1" max="999999" ><br/>
+			<br/>
+			<br/>
+			
+			<button type="button" onclick="fAleatoria()">Calcular</button>
+			<button type="reset" onclick="fRedefinir()">Redefinir</button>
+			
+			<div id="divTamanhoAmostraOutput" style="margin-top: 5vh; display: none;" >
+
+				<p id="tamanhoAmostraOutput">Tamanho da amostra: <span id="tamanhoAmostra"></span></p>
+				<br />
+				<p id="porcentagemPopulacaoPId" style="display: none;">Esse tamanho de amostra corresponde a <span id="porcentagemPopulacaoSpanId"></span>% do tamanho da população</p>
+				<br/>
+				
+				<!-- botões -->
+				<div id="divBotaoMostrarFormulasId" style="display: none;">
+					
+					<button type="button" onclick="fMostrarFormulas()">Mostrar fórmulas</button>
+
+				</div>
+
+				<div id="divBotaoEsconderFormulasId" style="display: none;">
+					
+					<button type="button" onclick="fEsconderFormulas()">Esconder fórmulas</button>
+
+				</div>
+					
+				<!-- fórmulas -->
+				<!-- n0 -->
+				<div id="divMostrarFormulasN0" style="border: 1px solid black; margin-top: 5vh; display: none;">
+				
+					<br/>
+					
+					E<sub>0</sub>: erro máximo tolerável<br/>
+					n<sub>0</sub>: tamanho da amostra<br/>
+					<br/>
+					
+					<pre>n<sub>0</sub> = 1 / E<sub>0</sub><sup>2</sup> = 1 / <span id="spanN0ErroDecimal" style="display: none;"></span><sup>2</sup> = <span id="spanN0tamanhoAmostra"></span>
+					</pre>
+					
+				</div>
+
+				<!-- n -->
+				<div id="divMostrarFormulasN" style="border: 1px solid black; margin-top: 5vh; display: none;">
+					
+					<br/>
+
+					n: tamanho da amostra corrigido<br/>
+					N: tamanho da população<br/>
+					n<sub>0</sub>: tamanho (inicial) da amostra<br/>
+					<br/>
+				
+					<pre>n = N * n<sub>0</sub> / (N + n<sub>0</sub>) = <span id="spanN"></span> * <span id="spanTamanhoAmostraInicial"></span> / (<span id="spanN2"></span> + <span id="spanTamanhoAmostraInicial2"></span>) = <span id="spanTamanhoAmostraCorrigido"></span>
+					</pre>
+
+				</div>
+
+			</div>
+			
+			<div id= "gerarNumero" style="display: none;">
+				
+				<!-- botão -->
+				 
+				<div style="margin-top: 5vh;">
+					
+					<button type="button" onclick="fGerarNumeros()">Gerar Números Aleatórios</button>
+					
+				</div>
+				 
+
+				<!-- lista números aleatórios -->
+				
+				<div id="divListaAleatorios" style="display: none;">
+					
+					<button type="button" onclick="tableToCSV()" style="margin-top: 5vh; margin-bottom: 3vh;">Baixar Lista</button>
+					(.csv)
+					
+					<ul list-style-type="none" id="listaAleatorios" style="padding: 10px;">
+					</ul>
+					
+				</div>
+				
+				
+			</div> 
+			
+		
+			
+		</div>
+		
+	</div>
+
+    <!-- RODAPÉ -->
+	
+    <div class="rodape">
+		
+		<div class="rodape-top">
+			
+			<div class="icone-rodape-top">
+				
+				<a href="#">
+					<img src="../../Imagens/aleatoria.svg" alt="">
+                </a>
+                
+            </div>
+            
+            <div class="icone-rodape-top">
+				
+				<a href="../sistematica/sistematica.html">
+					<img src="../../Imagens/sistematica.svg" alt="">
+                </a>
+                
+            </div>
+            
+            <div class="icone-rodape-top">
+				
+				<a href="../estratificada/estratificada.html">
+					<img src="../../Imagens/estratificada.svg" alt="">
+                </a>
+                
+            </div>
+            
+        </div> 
+        
+        <div class="rodape-bottom">
+			
+			<div class="texto-rodape">
+				<p>Trabalho de Estatística Aplicada - Análise e Desenvolvimento de Sistemas. <br> 2º Semestre de 2021. <br> Este site não possui fins lucrativos.</p>
+            </div>
+            
+        </div>
+		<!-- 
+			
+		-->
+    </div>
+	
+	
+	<script src="./aleatoria.js"></script>
+
+</body>
+</html>

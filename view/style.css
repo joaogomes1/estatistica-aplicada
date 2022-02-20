@@ -1,0 +1,376 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: Impact, fantasy;
+}
+
+/*** CABECALHO ***/
+  
+.header {
+    background-color: gold;
+    height: 6vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    /* border: 1px solid red; */
+    height: inherit;
+    width: 70px;
+    
+}
+
+    .logo img {
+        height: inherit;
+    }
+
+.saudacao {
+    /* border: 1px solid blue; */
+    font-size: 20px;
+    display: inherit;
+    align-items: center;
+}
+
+.menu {
+    /* border: 1px solid green; */
+    font-size: 10px;
+    display: inherit;
+    align-items: center;
+    width: 70px;
+
+    justify-content: space-evenly;
+
+
+}
+
+.home {
+    /* border: 1px solid red; */
+}
+
+.sobre {
+    /* border: 1px solid blue; */
+}
+
+a {
+    /* text-decoration: none; */
+    color: black;
+}
+
+a:active {
+    background-color: black;
+    color: gold;
+}
+
+/*** CONTEÚDO ***/
+
+.conteudo {
+    height: auto;
+    /* background-color: blue; */
+}
+
+.imagem {
+    background:url(../Imagens/blackAndYellow.png);
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    /* border: 5px dashed green; */
+    text-align: center;
+    
+}
+
+.imagem-top {
+    height: 80%;
+    /* border: 5px dashed yellow; */
+    /* align-items: center; */
+    display: inherit;
+    
+}
+
+.descricao {
+    color: white;
+    margin: auto;
+    text-shadow: 0 0 10px black;
+    font-size: 12px;
+    /* font-weight: 500; */
+    /* border: 5px solid red; */
+    text-transform: uppercase;
+}
+
+.imagem-bottom {
+    height: 20%;
+    /* border: 5px dashed blue; */
+    display: inherit;
+}
+.escolha {
+    color: gold;
+    text-shadow: 0 0 5px black;
+    /* border: 1px solid white; */
+    margin: auto;
+}
+
+/*** card container ***/
+
+.card-container {
+    height: auto;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.card {
+    width: 60%;
+    height: auto;
+    background-color: gold;
+    margin: 10px;
+}
+
+.card-top {
+    height: 30%;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.card-img {
+    width: 10vh;
+    /* border: 1px solid green; */
+    margin: 10px;
+    
+}
+
+.card-text {
+    /* border: 1px solid blue; */
+    text-align: center;
+    padding: 10px;
+}
+
+/*** RODAPÉ ***/
+
+.rodape {
+    background-color: pink;
+    height: 18vh;
+}
+
+.rodape-top {
+    background-color: gold;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.icone-rodape-top {
+    display: inherit;
+    height: 100%;
+    /* border: 1px solid red; */
+    margin: 10px;
+    align-items: center;
+}
+
+.icone-rodape-top img {
+    height: 3vh;
+    width: 10vw;
+    vertical-align: middle;
+}
+
+
+.rodape-bottom {
+    background-color: gold;
+    height: 50%;
+    display: flex;
+}
+
+.texto-rodape {
+    /* border: 1px solid red; */
+    margin: auto;
+    text-align: center;
+    font-size: 9px;
+}
+
+/*** MEDIA ***/
+
+@media only screen and (min-width: 425px) {
+
+    .card {
+        width: 250px;
+    }
+
+}
+
+@media only screen and (min-width: 768px) {
+    
+    .logo {
+        width: 100px;
+        
+    }
+    
+    .menu {
+        width: 100px;
+        font-size: 14px;
+        
+    }
+
+    .saudacao {
+        font-size: 24px;
+    }
+
+    .conteudo {
+        height: 84vh;
+    }
+
+    .imagem {
+
+        height: 30vh;
+    }
+
+    .escolha {
+        font-size: 16px;
+    }
+
+    .card-container {
+        flex-direction: row;
+        justify-content: space-evenly;
+        height: 54vh;
+    }
+
+    .card {
+        width: 25%;
+        height: 40vh;
+    }
+
+    .card-img {
+        width: 8vh;
+    }
+
+    .card-text {
+        font-size: 12px;
+    }
+
+    .rodape {
+        height: 10vh;
+    }
+
+    .texto-rodape {
+        font-size: 10px;
+    }
+
+        .texto-rodape br {
+            display: none;
+        }
+}
+
+@media only screen and (min-width: 1024px) {
+    
+    .card {
+        height: 250px;
+    }
+
+    .card-img {
+        width: 10vh;
+    }
+
+    .card-text {
+        font-size: 16px;
+    }
+
+}
+
+@media only screen and (min-width: 1440px) {
+    
+    .logo {
+        width: 200px;
+    }
+
+    .saudacao {
+        font-size: 34px;
+    }
+
+    .menu {
+        font-size: 20px;
+        width: 200px;
+
+    }
+
+    .descricao {
+        font-size: 18px;
+    }
+
+    .escolha {
+        font-size: 24px;
+    }
+
+    .card {
+
+        height: 40vh;
+
+    }
+    
+    .card-img {
+        width: 8vh;
+    }
+
+    .card-text {
+        font-size: 22px;
+    }
+    
+    .icone-rodape-top img {
+        height: 20px;
+    }
+    
+    .texto-rodape {
+        font-size: 16px;
+    }
+
+}
+
+@media only screen and (min-width: 2560px) {
+
+    .logo {
+        width: 300px;
+    }
+
+    .saudacao {
+        font-size: 60px;
+    }
+
+    .menu {
+        font-size: 40px;
+        width: 300px;
+
+    }
+
+    .imagem {
+
+        background-position: center;
+    }
+
+    .descricao {
+        font-size: 28px;
+    }
+
+    .escolha {
+        font-size: 40px;
+    }
+
+    .card-text {
+        font-size: 40px;
+    }
+
+    .icone-rodape-top {
+        margin: 20px;
+    }
+
+    .icone-rodape-top img {
+        height: 40px;
+    }
+
+    .texto-rodape {
+        font-size: 26px;
+    }
+  
+}

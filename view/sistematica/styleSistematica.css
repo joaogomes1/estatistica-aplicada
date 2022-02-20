@@ -1,0 +1,292 @@
+body {
+    background-color: black;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: Impact, fantasy;
+}
+
+input {
+	text-align: center;
+	background-color: gold;
+	border: 0.15em solid black;
+    font-size: 1em; /* ajusta automaticamente as heights das input boxes */
+}
+
+/** turns off number input spinners **/
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+button {
+    text-align: center;
+	background-color: gold;
+	border: 0.15em solid black;
+    /* ajusta automaticamente o tamanho dos botões? */
+    font-size: 1em;
+}
+/* 
+    button:hover {
+        background-color: black;
+        color: gold;
+    }
+ */
+ul {
+    padding-left: 0;
+}
+
+/*** CABECALHO ***/
+  
+.header {
+    background-color: gold;
+    height: 6vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    /* border: 1px solid red; */
+    height: inherit;
+    width: 25%;
+    
+}
+
+    .logo img {
+        height: inherit;
+    }
+
+.titulo {   /* Antes era chamado de 'saudacao' */
+    /* border: 1px solid blue; */
+    font-size: 0.8em;
+    height: inherit;
+
+    display: inherit;
+    align-items: center;
+}
+
+.menu {
+    /* border: 1px solid green; */
+    width: 25%; /* Mesmo tamanho do container do logo */
+    font-size: 0.6em;
+    display: inherit;
+    align-items: center;
+
+    justify-content: space-evenly;
+
+
+}
+
+a {
+    /* text-decoration: none; */
+    color: black;
+}
+
+a:active {
+    background-color: black;
+    color: gold;
+}
+
+/*** CONTEÚDO ***/
+
+.conteudo {
+    /* padding-top: 5vh; */
+    /* height: auto; */
+    min-height: 72vh;
+
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    
+
+    /* background-color:lightblue; */
+}
+
+.calculo {
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    text-align: center;
+    background-color: gold;
+    /* border: 1px solid green; */
+
+}
+
+
+/*** RODAPÉ ***/
+
+/* conteudo e rodapé possuem altura interdependente */
+
+.rodape {
+    /* padding-top: 5vh; */
+    /* margin-top: 5vh; */
+    background-color: pink;
+    height: 12vh;
+}
+
+.rodape-top {
+    background-color: gold;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.icone-rodape-top {
+    display: inherit;
+    height: 100%;
+    /* border: 1px solid red; */
+    margin: 3vw;
+    align-items: center;
+}
+
+    .icone-rodape-top img {
+        height: 3vh;
+        width: 10vw;
+        vertical-align: middle;
+    }
+
+.rodape-bottom {
+    background-color: gold;
+    height: 50%;
+    display: flex;
+}
+
+.texto-rodape {
+    /* border: 1px solid red; */
+    margin: auto;
+    text-align: center;
+    font-size: 9px;
+}
+
+/*** MEDIA QUERIES ***/
+
+
+@media only screen and (min-width: 425px) {
+
+   
+
+}
+
+@media only screen and (min-width: 768px) {
+    
+    .logo {
+        width: 20%;
+    }
+    
+    .titulo {
+        font-size: 1.1em;
+    }
+    
+    .menu {
+        width: 20%;
+        font-size: 0.8em;
+        
+    }
+
+    .conteudo {
+        min-height: 76vh; /* Vinha a 72 */
+    }
+
+    .rodape {
+        height: 8vh; /* Vinha a 12 */
+    }
+
+    .icone-rodape-top {
+        margin: 1vw;
+    }
+
+    .texto-rodape {
+        font-size: 10px;
+    }
+
+        .texto-rodape br {
+            display: none;
+        }
+}
+
+@media only screen and (min-width: 1024px) {
+    
+    .logo {
+        width: 15%;
+    }
+    
+    .titulo {
+        font-size: 1.3em;
+    }
+    
+    .menu {
+        width: 15%;
+        font-size: 1em;
+        
+    }
+
+    .texto-rodape {
+        font-size: 0.9em;
+    }
+
+}
+
+@media only screen and (min-width: 1440px) {
+    
+    .titulo {
+        font-size: 1.6em;
+    }
+
+    .menu {
+        font-size: 1.2em;
+    }
+
+    .conteudo {
+        font-size: 1.4em;
+    }
+
+    .icone-rodape-top {
+        margin: 1vw;
+    }
+
+        .icone-rodape-top img {
+            height: 3vh;
+        }
+        
+    .texto-rodape {
+        font-size: 16px;
+    }
+
+}
+
+@media only screen and (min-width: 2560px) {
+
+    .titulo {
+        font-size: 2.8em;
+    }
+
+    .menu {
+        font-size: 2em;
+    }
+
+    .conteudo {
+        font-size: 2.8em;
+    }
+
+    .icone-rodape-top {
+        margin: 1vw;
+    }
+
+        .icone-rodape-top img {
+            height: 3vh;
+        }
+
+    .texto-rodape {
+        font-size: 26px;
+    }
+  
+}

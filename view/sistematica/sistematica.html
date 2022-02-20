@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+	<meta X-Content-Type-Options: nosniff>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="../../Imagens/dino-icon.png" type="image/png" />
+    <link rel="stylesheet" type="text/css" href="../sistematica/styleSistematica.css" />
+    
+    <title>Sistemática</title>
+</head>
+
+<body>
+
+	<!-- CABEÇALHO -->
+	
+	<header class="header">
+		
+		<div class="logo">
+			<img src="../../Imagens/dino-gif.gif" alt="dino-gif">
+		</div>
+		
+		<div class="titulo">
+			SISTEMÁTICA
+		</div>
+			
+		<div class="menu">
+			<div class="home">
+				<a href="../index.html">Home</a>
+			</div>
+			
+			<div class="sobre">
+				<a href="../sobre.html">Sobre</a>
+			</div>
+		</div>
+
+    </header>
+	
+	<!-- CONTEÚDO -->
+
+	<div class="conteudo">
+		
+		<div class="calculo">
+			
+			<label for="erroToleravelId">Informe o erro máximo tolerável (%):</label>
+			<br/>
+			<br/>
+			<input type="number" id="erroToleravelId" name="erroToleravelName" min="1" max="100" autofocus>
+			<br/>
+			<br/>
+			
+			<label for="tamanhoPopulacaoId">Informe o tamanho da população:</label>
+			<br/>
+			<br/>
+			<input type="number" id="tamanhoPopulacaoId" name="tamanhoPopulacaoName" min="1" max="999999" >
+			<br/>
+			<br/>
+			
+			<button type="button" onclick="fTamanhoAmostra()">Calcular</button>
+			<button type="reset" onclick="fRedefinir()">Redefinir</button>
+
+			<br/>
+
+			<div id="divTamanhoAmostraOutput" style="margin-top: 5vh; display: none;" >
+
+				<p id="tamanhoAmostraOutput">Tamanho da amostra: <span id="tamanhoAmostra" style="font-weight: bold;"></span></p>
+				<br />
+				<p id="porcentagemPopulacaoPId" style="display: none;">Esse tamanho de amostra corresponde a <span type="number" id="porcentagemPopulacaoSpanId"></span>% do tamanho da população</p>
+				<br/>
+				<input" type="number" id="tamanhoAmostraId" name="tamanhoAmostraName" min="1" max="999999">
+				<br/>
+
+			</div>
+
+			<div id="divPrimeiroElemento" style="display: none;">
+
+				
+				<label for="primeiroElementoId">Informe o primeiro elemento a ser selecionado para a amostragem:</label>
+				<br/>
+				<br/>
+				
+				<input type="number" id="primeiroElementoId" name="primeiroElementoName" min="1" max="999999">
+				<button type="button" onclick="fBotaoAleatorio()">Aleatório</button>
+				<br/>
+				<br/>
+				
+			</div>
+
+			<!-- botões -->
+			<div id="divBotaoMostrarFormulasId" style="display: none;">
+					
+				<button type="button" onclick="fMostrarFormulas()">Mostrar fórmulas</button>
+
+			</div>
+
+			<div id="divBotaoEsconderFormulasId" style="display: none;">
+				
+				<button type="button" onclick="fEsconderFormulas()">Esconder fórmulas</button>
+
+			</div>
+			<!-- fórmulas -->
+			<div id="divMostrarFormulasN0" style="border: 1px solid black; margin-top: 5vh; display: none;">
+				
+				<br/>
+				
+				E<sub>0</sub>: erro máximo tolerável<br/>
+				n<sub>0</sub>: tamanho da amostra<br/>
+				<br/>
+				
+				<pre>n<sub>0</sub> = 1 / E<sub>0</sub><sup>2</sup> = 1 / <span id="spanN0ErroDecimal" style="display: none; font-weight: bold;"></span><sup>2</sup> = <span id="spanN0tamanhoAmostra" style="font-weight: bold;"></span>
+				</pre>
+				
+			</div>
+
+			<div id="divMostrarFormulasN" style="border: 1px solid black; margin-top: 5vh; display: none;">
+				
+				<br/>
+
+				n: tamanho da amostra corrigido<br/>
+				N: tamanho da população<br/>
+				n<sub>0</sub>: tamanho (inicial) da amostra<br/>
+				<br/>
+			
+				<pre>n = N * n<sub>0</sub> / (N + n<sub>0</sub>) = <span id="spanN" style="font-weight: bold;"></span> * <span id="spanTamanhoAmostraInicial" style="font-weight: bold;"></span> / (<span id="spanN2" style="font-weight: bold;"></span> + <span id="spanTamanhoAmostraInicial2" style="font-weight: bold;"></span>) = <span id="spanTamanhoAmostraCorrigido" style="font-weight: bold;"></span>
+				</pre>
+
+			</div>
+
+			<div id="divMostrarFormulasN1" style="border: 1px solid black; margin-top: 5vh; display: none;">
+				
+				<br/>
+
+				k: intervalo de amostragem<br/>
+				n: tamanho da amostra corrigido<br/>
+				N: tamanho da população<br/>
+				<br/>
+			
+				<pre>k = N/n = <span id="spanN3" style="font-weight: bold;"></span> / <span id="spanTamanhoAmostraCorrigido2" style="font-weight: bold;"></span> = <span id="spanTamanhoIntervalo" style="font-weight: bold;"></span>
+				</pre>
+
+			</div>
+			<!-- <input type="reset"> -->
+
+			<!-- lista números escolhidos -->
+			<!-- visível somente após o informe do primeiro elemento -->
+			<div id="divListaEscolhidos" style="display: none; margin-top: 5vh;">
+				<button type="button" onclick="fListaEscolhidos()">Gerar</button>
+				<button type="button" onclick="tableToCSV()" style="margin-top: 5vh; margin-bottom: 3vh;">Baixar Lista</button>
+				(.csv)
+				
+			</div>
+			
+			<div id=divListaEscolhidos2 style="margin-top: 5vh";>
+				<ul id="listaEscolhidos" style="display: flex; flex-direction: column; list-style-type: none; padding-bottom: 10px; text-align: center;">
+				</ul>
+			</div>
+			
+			
+		</div>
+		<input type="hidden" id="divTamanhoAmostra">
+	</div>
+
+    <!-- RODAPÉ -->
+	
+    <div class="rodape">
+		
+		<div class="rodape-top">
+			
+			<div class="icone-rodape-top">
+				
+				<a href="../aleatoria/aleatoria.html">
+					<img src="../../Imagens/aleatoria.svg" alt="">
+                </a>
+                
+            </div>
+            
+            <div class="icone-rodape-top">
+				
+				<a href="#">
+					<img src="../../Imagens/sistematica.svg" alt="">
+                </a>
+                
+            </div>
+            
+            <div class="icone-rodape-top">
+				
+				<a href="../estratificada/estratificada.html">
+					<img src="../../Imagens/estratificada.svg" alt="">
+                </a>
+                
+            </div>
+            
+        </div> 
+        
+        <div class="rodape-bottom">
+			
+			<div class="texto-rodape">
+				<p>Trabalho de Estatística Aplicada - Análise e Desenvolvimento de Sistemas. <br> 2º Semestre de 2021. <br> Este site não possui fins lucrativos.</p>
+            </div>
+            
+        </div>
+ 
+	</div>
+	
+	<script src="./sistematica.js"></script>
+
+</body>
+</html>
